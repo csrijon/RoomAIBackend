@@ -1,0 +1,16 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is The AppBackend",
+  "license": "MIT",
+  "author": "Srijon",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run "
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.1.2"
+  }
+}
