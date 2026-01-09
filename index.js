@@ -2,7 +2,6 @@ import express from "express"
 import { signupModel } from "./models/Schema.js"
 
 
-
 const app = express()
 const port = 3000
 
