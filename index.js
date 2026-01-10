@@ -13,11 +13,19 @@ app.get("/", (req, res) => {
 app.post("/signup", async (req, res) => {
   try {
     const { fullname, usermail, signuppass } = req.body
+
+    const existmail = await signupModel.findOne({ usermail })
+
+    if (existmail) {
+      return res.status(400).json({ message: "email already exists" })
+    }
+
     const signupdata = new signupModel({
       fullname,
       usermail,
       signuppass
     })
+
     await signupdata.save()
     return res.status(201).json({ message: "data saved successfully" })
   } catch (error) {

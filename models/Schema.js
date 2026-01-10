@@ -17,7 +17,8 @@ const SignupSchema = new mongoose.Schema({
     usermail: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     signuppass: {
         type: String,
