@@ -1,6 +1,7 @@
 import express from "express"
 import { signupModel } from "./models/Schema.js"
 import loginrouter from "./routes/Loginrouter.js"
+import optchecker from "./routes/optchecker.js"
 
 
 const app = express()
@@ -8,7 +9,8 @@ const port = 3000
 
 app.use(express.json())
 
-app.use("/login",loginrouter)
+app.use("/login", loginrouter)
+app.use("/optchecker", optchecker)
 
 app.get("/", (req, res) => {
   res.send("hello guys")
