@@ -36,9 +36,3 @@ const genotp = () => {
 }
 export default router;
 
-// zzjd bwyq xlgp idpi
-
-// 3117365726-6hkb6sbuj92glcqm8fdrlroi0tss9g9k.apps.googleusercontent.com  clint id
-// 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  clint secret
-
-// 4/0ASc3gC2YdWuKmy042Ogx58bgDzM6qW9A-Be3BbDgWyp0ojiHEOM0elQCvhx8qE-kUsZ2LQ  refresh token
