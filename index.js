@@ -1,4 +1,5 @@
 import express from "express"
+import bcrypt from "bcrypt";
 import { signupModel } from "./models/Schema.js"
 import loginrouter from "./routes/Loginrouter.js"
 import optchecker from "./routes/optchecker.js"
@@ -24,11 +25,12 @@ app.post("/signup", async (req, res) => {
     if (existmail) {
       return res.status(400).json({ message: "email already exists" })
     }
+    const hashpass = await bcrypt.hash(signuppass, 10)
 
     const signupdata = new signupModel({
       fullname,
       usermail,
-      signuppass
+      signuppass: hashpass
     })
 
     await signupdata.save()
