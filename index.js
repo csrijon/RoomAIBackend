@@ -3,10 +3,12 @@ import bcrypt from "bcrypt";
 import { signupModel } from "./models/Schema.js"
 import loginrouter from "./routes/Loginrouter.js"
 import optchecker from "./routes/optchecker.js"
+import dotenv from "dotenv";
+dotenv.config();
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.use(express.json())
 
