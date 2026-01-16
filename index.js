@@ -2,7 +2,8 @@ import express from "express"
 import bcrypt from "bcrypt";
 import { signupModel } from "./models/Schema.js"
 import loginrouter from "./routes/Loginrouter.js"
-import optchecker from "./routes/optchecker.js"
+import otpsender from "./routes/otpsender.js"
+import otpchecker from "./routes/otpchecker.js"
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -13,7 +14,8 @@ const port = process.env.PORT
 app.use(express.json())
 
 app.use("/login", loginrouter)
-app.use("/optchecker", optchecker)
+app.use("/otpsender", otpsender)
+app.use("/otpchecker", otpchecker)
 
 app.get("/", (req, res) => {
   res.send("hello guys")

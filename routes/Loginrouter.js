@@ -5,7 +5,7 @@ import { signupModel } from "../models/Schema.js";
 
 router.post("/", async (req, res) => {
     const { usermail, loginpass } = req.body;
-    console.log("Login attempt:", usermail, loginpass);
+    // console.log("Login attempt:", usermail, loginpass);
 
     const user = await signupModel.findOne({ usermail });
     console.log("User found:", user);

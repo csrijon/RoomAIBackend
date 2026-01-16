@@ -27,4 +27,18 @@ const SignupSchema = new mongoose.Schema({
     }
 })
 
+const otpSchema = new mongoose.Schema({
+    otp:{
+        type: Number,
+        required: true,
+        trim: true
+    },
+    usermail:{
+        type: String,
+        required: true,
+        trim: true
+    },
+})
+
 export const signupModel = mongoose.model("signupModel", SignupSchema);
+export const otpModel = mongoose.model("otpModel", otpSchema);

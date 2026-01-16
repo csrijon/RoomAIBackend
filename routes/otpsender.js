@@ -1,7 +1,7 @@
 import express from 'express';
 const router = express.Router();
-import { signupModel } from '../models/Schema.js';
-import MailSender from '../routes/MailSender.js';
+import { signupModel,otpModel } from '../models/Schema.js';
+import MailSender from './MailSender.js';
 
 let regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -24,9 +24,14 @@ router.post('/', async (req, res) => {
         to: usermail,
         otp: otp
     })
+    const otpdata = new otpModel({
+        otp: otp,
+        usermail: usermail
+    })
+    await otpdata.save();
 
     console.log("Generated OTP for user:", otp);
-    res.status(200).json({ success: true, message: 'OTP can be sent to this email', usermail, otp });
+    res.status(200).json({ success: true, message: 'OTP Send Successfully', usermail, otp });
 }
 );
 
@@ -36,3 +41,4 @@ const genotp = () => {
 }
 export default router;
 
+//   clint id
