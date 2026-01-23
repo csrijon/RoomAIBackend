@@ -7,3 +7,4 @@ GoogleSignin.configure({
      webClientId:process.env.GOOGLE_CLIENT_ID,
 })
 
+export default Googlelogin;
