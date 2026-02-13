@@ -1,4 +1,5 @@
 import express from "express"
+import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import { signupModel } from "./models/Schema.js"
 import loginrouter from "./routes/Loginrouter.js"
@@ -10,6 +11,13 @@ dotenv.config();
 
 const app = express()
 const port = process.env.PORT
+
+mongoose.connect("mongodb://localhost:27017/Roomaiapp")
+    .then(() => {
+        console.log("mongodb connected successfully")
+    }).catch((err) => {
+        console.log("mongodb not connected", err)
+    })
 
 app.use(express.json())
 
