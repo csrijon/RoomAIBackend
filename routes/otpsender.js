@@ -26,7 +26,8 @@ router.post('/', async (req, res) => {
     })
     const otpdata = new otpModel({
         otp: otp,
-        usermail: usermail
+        usermail: usermail,
+        // exptime
     })
     await otpdata.save();
 

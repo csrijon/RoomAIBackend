@@ -38,6 +38,12 @@ const otpSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    exptime:{
+        type: Date,
+        required: true,
+        default:Date.now,
+        expires:300,
+    }
 })
 
 export const signupModel = mongoose.model("signupModel", SignupSchema);
