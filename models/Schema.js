@@ -1,12 +1,4 @@
-
 import mongoose from "mongoose";
-
-// mongoose.connect("mongodb://localhost:27017/Roomaiapp")
-//     .then(() => {
-//         console.log("mongodb connected successfully")
-//     }).catch((err) => {
-//         console.log("mongodb not connected", err)
-//     })
 
 const SignupSchema = new mongoose.Schema({
     fullname: {
@@ -46,5 +38,14 @@ const otpSchema = new mongoose.Schema({
     }
 })
 
+const userschema = new mongoose.Schema({
+    fullname:String,
+    usermail:String,
+    googleid:String,
+    avtar:String
+})
+
+
+export const usermodel = mongoose.model("usermodel", userschema);
 export const signupModel = mongoose.model("signupModel", SignupSchema);
 export const otpModel = mongoose.model("otpModel", otpSchema);

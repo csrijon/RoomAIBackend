@@ -6,6 +6,8 @@ import loginrouter from "./routes/Loginrouter.js"
 import otpsender from "./routes/otpsender.js"
 import otpchecker from "./routes/otpchecker.js"
 import Updatepass from "./routes/Updatepass.js"
+import Googlelogin from "./routes/Googlelogin.js"
+import cors from "cors"
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -13,7 +15,7 @@ dotenv.config();
 const app = express()
 const port = process.env.PORT
 
-mongoose.connect("mongodb+srv://Srijon:<db_password>@cluster0.kfh2p1q.mongodb.net/Roomaiapp", {
+mongoose.connect("mongodb://localhost:27017/Roomaiapp", {
   autoIndex: true,
 })
   .then(() => {
@@ -21,13 +23,14 @@ mongoose.connect("mongodb+srv://Srijon:<db_password>@cluster0.kfh2p1q.mongodb.ne
   }).catch((err) => {
     console.log("mongodb not connected", err)
   })
-
+app.use(cors())
 app.use(express.json())
 
 app.use("/login", loginrouter)
 app.use("/otpsender", otpsender)
 app.use("/otpchecker", otpchecker)
 app.use("/updatepass", Updatepass)
+app.use("/googlelogin", Googlelogin)
 
 app.get("/", (req, res) => {
   res.send("hello guys")
@@ -57,6 +60,6 @@ app.post("/signup", async (req, res) => {
   }
 })
 
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`app is running ${port}`)
-})
+});
